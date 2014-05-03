@@ -1,7 +1,8 @@
-package postfix;
-import postfix.parser.*;
-import postfix.lexer.*;
-import postfix.node.*;
+package main;
+
+import parser.*;
+import lexer.*;
+import node.*;
 
 import java.io.*;
 
@@ -14,13 +15,8 @@ public class Compiler {
                System.out.println("Type an arithmetic expression:");
             
                // Create a Parser instance.
-               Lexer l = new Lexer( new PushbackReader( new InputStreamReader(System.in), 1024)));
+               Lexer l = new Lexer( new PushbackReader( new InputStreamReader(System.in), 1024));
             
-               // Parse the input.
-               Start tree = l;
-            
-               // Apply the translation.
-               tree.apply(new Translation());
          }
          catch(Exception e) {
                System.out.println(e.getMessage());
