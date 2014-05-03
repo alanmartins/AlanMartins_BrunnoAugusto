@@ -1,0 +1,6 @@
+programa OlaMundo;
+	var caractere : texto[50];
+	inicio
+	texto := 'Ola Mundo';
+	escreva(texto);
+fim.

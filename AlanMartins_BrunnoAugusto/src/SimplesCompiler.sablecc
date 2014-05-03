@@ -4,7 +4,9 @@ Helpers
 
 
 Tokens
+	
 	virgula = ',';
+	ponto = '.';
     dois_pontos = ':';
     ponto_virgula = ';';
     l_par = '(';
