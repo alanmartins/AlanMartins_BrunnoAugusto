@@ -1,0 +1,53 @@
+Helpers
+	nao_numero = ['_' + [['a'..'z'] + ['A'..'Z']]];
+	numero = ['0' .. '9']+;
+
+
+Tokens
+	virgula = ',';
+    dois_pontos = ':';
+    ponto_virgula = ';';
+    l_par = '(';
+    r_par = ')';
+    l_colc = '[';
+    r_colc = ']';
+    l_chave = '{';
+    r_chave = '}';
+    mult = '*';
+    div = '/';
+    mod = '%';
+    mais = '+';
+    menos = '-';
+    igual = '=';
+    atribuicao = '<-';
+    
+    ig_log = '==';
+    dif_log = '!=';
+    menor = '<';
+    menor_ig = '<=';
+    maior = '>';
+    maior_ig = '>=';
+    e_log = '&&';
+    ou_log = '||';
+    
+    programa = 'programa';
+    inicio = 'inicio';
+    fim = 'fim';
+    se = 'se';
+    senao = 'senao';
+    enquanto = 'enquanto';
+    repita = 'repita';
+    ate = 'ate';
+    faca = 'faca';
+    para = 'para';
+    var = 'var';
+    caractere = 'caractere';
+    inteiro = 'inteiro';
+    real = 'real';
+    branco = (' ' | 13 | 10 | 9)+;
+ 
+    id = nao_numero (numero | nao_numero)*;
+
+
+Ignored Tokens
+ 	 branco;
