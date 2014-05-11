@@ -1,6 +1,16 @@
-programa OlaMundo;
-	var caractere : texto[50];
-	inicio
-	texto := 'Ola Mundo';
-	escreva(texto);
+programa _Ola_Mundo;
+var caractere : 112ROTA10[50];
+	inteiro : a;
+	inteiro : b;
+inicio
+	a <- 2;
+	b <- 10;
+	texto <- 'Ola Mundo';
+	enquanto(a == 4) faca
+		escreva(texto);
+		a <- a - 1;
+	fim enquanto;
+	se (a == b) entao
+		escreva(texto);
+	fim    se;
 fim.

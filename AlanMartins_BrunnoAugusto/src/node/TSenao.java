@@ -25,7 +25,6 @@ public final class TSenao extends Token
       return new TSenao(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTSenao(this);

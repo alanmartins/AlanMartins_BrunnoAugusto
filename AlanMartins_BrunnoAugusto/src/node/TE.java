@@ -5,16 +5,16 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class TMaiorIg extends Token
+public final class TE extends Token
 {
-    public TMaiorIg()
+    public TE()
     {
-        super.setText(">=");
+        super.setText("&");
     }
 
-    public TMaiorIg(int line, int pos)
+    public TE(int line, int pos)
     {
-        super.setText(">=");
+        super.setText("&");
         setLine(line);
         setPos(pos);
     }
@@ -22,17 +22,17 @@ public final class TMaiorIg extends Token
     @Override
     public Object clone()
     {
-      return new TMaiorIg(getLine(), getPos());
+      return new TE(getLine(), getPos());
     }
 
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTMaiorIg(this);
+        ((Analysis) sw).caseTE(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TMaiorIg text.");
+        throw new RuntimeException("Cannot change TE text.");
     }
 }

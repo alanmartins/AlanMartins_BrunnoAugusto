@@ -5,16 +5,16 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class TOuLog extends Token
+public final class TNao extends Token
 {
-    public TOuLog()
+    public TNao()
     {
-        super.setText("||");
+        super.setText("~");
     }
 
-    public TOuLog(int line, int pos)
+    public TNao(int line, int pos)
     {
-        super.setText("||");
+        super.setText("~");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,17 @@ public final class TOuLog extends Token
     @Override
     public Object clone()
     {
-      return new TOuLog(getLine(), getPos());
+      return new TNao(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTOuLog(this);
+        ((Analysis) sw).caseTNao(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TOuLog text.");
+        throw new RuntimeException("Cannot change TNao text.");
     }
 }

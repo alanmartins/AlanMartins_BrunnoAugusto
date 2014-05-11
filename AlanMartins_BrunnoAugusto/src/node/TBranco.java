@@ -25,7 +25,6 @@ public final class TBranco extends Token
       return new TBranco(getText(), getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTBranco(this);

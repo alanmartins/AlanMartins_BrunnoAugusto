@@ -25,7 +25,6 @@ public final class TInteiro extends Token
       return new TInteiro(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTInteiro(this);

@@ -25,7 +25,6 @@ public final class TCaractere extends Token
       return new TCaractere(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTCaractere(this);

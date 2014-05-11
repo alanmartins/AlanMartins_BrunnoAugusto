@@ -25,7 +25,6 @@ public final class TMenor extends Token
       return new TMenor(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTMenor(this);

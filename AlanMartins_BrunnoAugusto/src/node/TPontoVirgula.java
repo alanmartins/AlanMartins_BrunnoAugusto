@@ -25,7 +25,6 @@ public final class TPontoVirgula extends Token
       return new TPontoVirgula(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTPontoVirgula(this);

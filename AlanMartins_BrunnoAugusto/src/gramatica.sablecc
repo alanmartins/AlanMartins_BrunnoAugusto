@@ -1,0 +1,66 @@
+Helpers
+
+		enter = 13;	
+	line_feed = 10;
+		  tab = 9;
+   espaco = ' ';
+   
+   nao_numero = ['_' + [['a'..'z'] + ['A'..'Z']]]+;
+   numero = ['0' .. '9']+;
+   todos = [0 .. 127];
+   sem_estrela = [todos - '*'];
+   sem_estrela_e_barra = [sem_estrela - '/'];
+
+Tokens
+	
+	digito = numero;
+	aspas_simples = ''';
+	virgula = ',';
+	ponto = '.';
+    dois_pontos = ':';
+    ponto_virgula = ';';
+    l_par = '(';
+    r_par = ')';
+    l_colc = '[';
+    r_colc = ']';
+    mult = '*';
+    div = '/';
+    mais = '+';
+    menos = '-';
+    atribuicao = '<-';
+    
+    ig_log = '==';
+    dif_log = '!=';
+    menor = '<';
+    menor_ig = '<=';
+    maior = '>';
+    maior_ig = '>=';
+    e = '&';
+    ou = '|';
+    nao = '~';
+    
+    programa = 'programa';
+    var = 'var';
+    inicio = 'inicio';
+    fim = 'fim' (espaco+ ('enquanto' | 'para' | 'se')*)*;
+    se = 'se'; 
+    enquanto = 'enquanto';
+    para = 'para';
+    entao = 'entao';
+    faca = 'faca';
+    senao = 'senao';
+    repita = 'repita';
+    ate = 'ate';    
+    escreva = 'escreva';
+    
+    caractere = 'caractere';
+    inteiro = 'inteiro';
+    real = 'real';
+    
+    branco = (espaco | tab | line_feed | enter)*; 
+    id = nao_numero (numero | nao_numero)*;
+	comentario = '/*' sem_estrela* '*'+ (sem_estrela_e_barra sem_estrela* '*'+)* '/';
+
+Ignored Tokens
+ 	 branco,
+ 	 comentario;

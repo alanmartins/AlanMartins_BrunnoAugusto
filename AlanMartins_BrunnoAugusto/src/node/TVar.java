@@ -25,7 +25,6 @@ public final class TVar extends Token
       return new TVar(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTVar(this);

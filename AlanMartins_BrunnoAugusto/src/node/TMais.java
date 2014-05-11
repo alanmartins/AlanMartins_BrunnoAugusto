@@ -25,7 +25,6 @@ public final class TMais extends Token
       return new TMais(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTMais(this);

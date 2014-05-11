@@ -25,7 +25,6 @@ public final class TFaca extends Token
       return new TFaca(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTFaca(this);

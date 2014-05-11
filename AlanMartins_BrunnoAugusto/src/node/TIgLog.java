@@ -25,7 +25,6 @@ public final class TIgLog extends Token
       return new TIgLog(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTIgLog(this);

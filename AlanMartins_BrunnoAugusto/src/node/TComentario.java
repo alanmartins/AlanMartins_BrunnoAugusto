@@ -5,14 +5,14 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class InvalidToken extends Token
+public final class TComentario extends Token
 {
-    public InvalidToken(String text)
+    public TComentario(String text)
     {
         setText(text);
     }
 
-    public InvalidToken(String text, int line, int pos)
+    public TComentario(String text, int line, int pos)
     {
         setText(text);
         setLine(line);
@@ -22,12 +22,11 @@ public final class InvalidToken extends Token
     @Override
     public Object clone()
     {
-        return new InvalidToken(getText(), getLine(), getPos());
+      return new TComentario(getText(), getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseInvalidToken(this);
+        ((Analysis) sw).caseTComentario(this);
     }
 }

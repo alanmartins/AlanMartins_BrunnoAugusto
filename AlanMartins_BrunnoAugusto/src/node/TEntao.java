@@ -5,16 +5,16 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class TLChave extends Token
+public final class TEntao extends Token
 {
-    public TLChave()
+    public TEntao()
     {
-        super.setText("{");
+        super.setText("entao");
     }
 
-    public TLChave(int line, int pos)
+    public TEntao(int line, int pos)
     {
-        super.setText("{");
+        super.setText("entao");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,17 @@ public final class TLChave extends Token
     @Override
     public Object clone()
     {
-      return new TLChave(getLine(), getPos());
+      return new TEntao(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTLChave(this);
+        ((Analysis) sw).caseTEntao(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TLChave text.");
+        throw new RuntimeException("Cannot change TEntao text.");
     }
 }

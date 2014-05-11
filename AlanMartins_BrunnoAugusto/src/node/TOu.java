@@ -5,16 +5,16 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class TELog extends Token
+public final class TOu extends Token
 {
-    public TELog()
+    public TOu()
     {
-        super.setText("&&");
+        super.setText("|");
     }
 
-    public TELog(int line, int pos)
+    public TOu(int line, int pos)
     {
-        super.setText("&&");
+        super.setText("|");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,17 @@ public final class TELog extends Token
     @Override
     public Object clone()
     {
-      return new TELog(getLine(), getPos());
+      return new TOu(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTELog(this);
+        ((Analysis) sw).caseTOu(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TELog text.");
+        throw new RuntimeException("Cannot change TOu text.");
     }
 }

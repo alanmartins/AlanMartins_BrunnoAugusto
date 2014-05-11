@@ -5,16 +5,16 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class TIgual extends Token
+public final class TAspasSimples extends Token
 {
-    public TIgual()
+    public TAspasSimples()
     {
-        super.setText("=");
+        super.setText("\'");
     }
 
-    public TIgual(int line, int pos)
+    public TAspasSimples(int line, int pos)
     {
-        super.setText("=");
+        super.setText("\'");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,17 @@ public final class TIgual extends Token
     @Override
     public Object clone()
     {
-      return new TIgual(getLine(), getPos());
+      return new TAspasSimples(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTIgual(this);
+        ((Analysis) sw).caseTAspasSimples(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TIgual text.");
+        throw new RuntimeException("Cannot change TAspasSimples text.");
     }
 }

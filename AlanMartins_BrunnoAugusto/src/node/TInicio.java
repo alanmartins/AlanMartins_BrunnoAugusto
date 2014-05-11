@@ -25,7 +25,6 @@ public final class TInicio extends Token
       return new TInicio(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTInicio(this);

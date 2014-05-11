@@ -25,7 +25,6 @@ public final class TMenos extends Token
       return new TMenos(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTMenos(this);

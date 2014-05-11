@@ -25,7 +25,6 @@ public final class TDifLog extends Token
       return new TDifLog(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTDifLog(this);

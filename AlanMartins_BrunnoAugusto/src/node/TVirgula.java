@@ -25,7 +25,6 @@ public final class TVirgula extends Token
       return new TVirgula(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTVirgula(this);

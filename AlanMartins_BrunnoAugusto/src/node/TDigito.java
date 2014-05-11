@@ -5,14 +5,14 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class TId extends Token
+public final class TDigito extends Token
 {
-    public TId(String text)
+    public TDigito(String text)
     {
         setText(text);
     }
 
-    public TId(String text, int line, int pos)
+    public TDigito(String text, int line, int pos)
     {
         setText(text);
         setLine(line);
@@ -22,11 +22,11 @@ public final class TId extends Token
     @Override
     public Object clone()
     {
-      return new TId(getText(), getLine(), getPos());
+      return new TDigito(getText(), getLine(), getPos());
     }
 
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTId(this);
+        ((Analysis) sw).caseTDigito(this);
     }
 }

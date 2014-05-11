@@ -25,7 +25,6 @@ public final class TAte extends Token
       return new TAte(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTAte(this);

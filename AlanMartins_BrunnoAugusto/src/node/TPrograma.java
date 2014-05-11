@@ -25,7 +25,6 @@ public final class TPrograma extends Token
       return new TPrograma(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTPrograma(this);

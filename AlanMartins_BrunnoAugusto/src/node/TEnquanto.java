@@ -25,7 +25,6 @@ public final class TEnquanto extends Token
       return new TEnquanto(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTEnquanto(this);

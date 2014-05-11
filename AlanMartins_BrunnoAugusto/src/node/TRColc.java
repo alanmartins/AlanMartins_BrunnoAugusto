@@ -25,7 +25,6 @@ public final class TRColc extends Token
       return new TRColc(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTRColc(this);

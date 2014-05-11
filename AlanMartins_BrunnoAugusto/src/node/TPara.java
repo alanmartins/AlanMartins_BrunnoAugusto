@@ -25,7 +25,6 @@ public final class TPara extends Token
       return new TPara(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTPara(this);

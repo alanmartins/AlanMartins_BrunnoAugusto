@@ -25,7 +25,6 @@ public final class TSe extends Token
       return new TSe(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTSe(this);

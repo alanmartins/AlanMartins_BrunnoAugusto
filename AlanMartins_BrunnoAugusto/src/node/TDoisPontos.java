@@ -25,7 +25,6 @@ public final class TDoisPontos extends Token
       return new TDoisPontos(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTDoisPontos(this);

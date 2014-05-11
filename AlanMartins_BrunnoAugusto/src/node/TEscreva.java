@@ -5,16 +5,16 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class TRChave extends Token
+public final class TEscreva extends Token
 {
-    public TRChave()
+    public TEscreva()
     {
-        super.setText("}");
+        super.setText("escreva");
     }
 
-    public TRChave(int line, int pos)
+    public TEscreva(int line, int pos)
     {
-        super.setText("}");
+        super.setText("escreva");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,17 @@ public final class TRChave extends Token
     @Override
     public Object clone()
     {
-      return new TRChave(getLine(), getPos());
+      return new TEscreva(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTRChave(this);
+        ((Analysis) sw).caseTEscreva(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TRChave text.");
+        throw new RuntimeException("Cannot change TEscreva text.");
     }
 }

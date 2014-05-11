@@ -25,7 +25,6 @@ public final class TLColc extends Token
       return new TLColc(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTLColc(this);

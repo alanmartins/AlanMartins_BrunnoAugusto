@@ -5,16 +5,16 @@ package node;
 import analysis.*;
 
 @SuppressWarnings("nls")
-public final class TMod extends Token
+public final class TPonto extends Token
 {
-    public TMod()
+    public TPonto()
     {
-        super.setText("%");
+        super.setText(".");
     }
 
-    public TMod(int line, int pos)
+    public TPonto(int line, int pos)
     {
-        super.setText("%");
+        super.setText(".");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,17 @@ public final class TMod extends Token
     @Override
     public Object clone()
     {
-      return new TMod(getLine(), getPos());
+      return new TPonto(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTMod(this);
+        ((Analysis) sw).caseTPonto(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TMod text.");
+        throw new RuntimeException("Cannot change TPonto text.");
     }
 }

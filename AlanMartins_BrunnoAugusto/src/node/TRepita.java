@@ -25,7 +25,6 @@ public final class TRepita extends Token
       return new TRepita(getLine(), getPos());
     }
 
-    @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTRepita(this);
