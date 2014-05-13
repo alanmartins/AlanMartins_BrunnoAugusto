@@ -264,6 +264,11 @@ public class AnalysisAdapter implements Analysis
         defaultCase(node);
     }
 
+    public void caseTString(TString node)
+    {
+        defaultCase(node);
+    }
+
     public void caseTBranco(TBranco node)
     {
         defaultCase(node);

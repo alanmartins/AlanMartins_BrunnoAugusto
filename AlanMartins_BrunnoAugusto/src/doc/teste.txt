@@ -1,16 +1,17 @@
-programa _Ola_Mundo;
-var caractere : 112ROTA10[50];
+programa _Ola_Mundo100;
+var caractere : TexTo[50];
 	inteiro : a;
 	inteiro : b;
 inicio
 	a <- 2;
 	b <- 10;
-	texto <- 'Ola Mundo';
-	enquanto(a == 4) faca
+	TexTo <- 'Ola Mundo';
+	
+	// enquanto(a == 4) faca
 		escreva(texto);
 		a <- a - 1;
-	fim enquanto;
+	fim   enquanto;
 	se (a == b) entao
 		escreva(texto);
-	fim    se;
+	fim  se;
 fim.

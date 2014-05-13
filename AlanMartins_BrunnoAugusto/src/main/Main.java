@@ -31,7 +31,10 @@ public class Main {
          tk = lexer.next();
          while(!tk.getText().equals("")) {
              if(!tk.getText().equals(" ")){
-                 System.out.println("["+tk.getLine()+","+tk.getPos()+"] "+tk.getText()); 
+                 System.out.print(/*"["+tk.getLine()+","+tk.getPos()+"] "+*/tk.getText()+" "); 
+             }
+             if(tk.getText().contains("\n")){
+                 System.out.println();
              }
              analiseLexica(lexer);
          }

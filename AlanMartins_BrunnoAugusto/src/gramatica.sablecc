@@ -5,11 +5,17 @@ Helpers
 		  tab = 9;
    espaco = ' ';
    
+   eol = (enter | line_feed | line_feed enter);
+   
    nao_numero = ['_' + [['a'..'z'] + ['A'..'Z']]]+;
    numero = ['0' .. '9']+;
    todos = [0 .. 127];
+   sem_eol = [todos - [enter + line_feed]];
    sem_estrela = [todos - '*'];
    sem_estrela_e_barra = [sem_estrela - '/'];
+   
+   c_linha = '//' sem_eol* eol*; 
+   c_bloco = '/*' sem_estrela* '*'+ (sem_estrela_e_barra sem_estrela* '*'+)* '/';
 
 Tokens
 	
@@ -57,9 +63,11 @@ Tokens
     inteiro = 'inteiro';
     real = 'real';
     
+    string = ''' sem_eol+ ''';
     branco = (espaco | tab | line_feed | enter)*; 
     id = nao_numero (numero | nao_numero)*;
-	comentario = '/*' sem_estrela* '*'+ (sem_estrela_e_barra sem_estrela* '*'+)* '/';
+    comentario = c_linha | c_bloco;
+	
 
 Ignored Tokens
  	 branco,
