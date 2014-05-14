@@ -1,13 +1,14 @@
 programa _Ola_Mundo100;
 var caractere : TexTo[50];
 	inteiro : a;
-	inteiro : b;
+	real : b;
 inicio
-	a <- 2;
-	b <- 10;
+	a <- 12;
+	b <- 24 - - 12.35;
 	TexTo <- 'Ola Mundo';
+	/* b */ c */
 	
-	// enquanto(a == 4) faca
+	enquanto(a == 4) faca
 		escreva(texto);
 		a <- a - 1;
 	fim   enquanto;

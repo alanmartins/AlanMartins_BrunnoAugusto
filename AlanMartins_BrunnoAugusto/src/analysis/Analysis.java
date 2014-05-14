@@ -11,7 +11,9 @@ public interface Analysis extends Switch
     Object getOut(Node node);
     void setOut(Node node, Object o);
 
-    void caseTDigito(TDigito node);
+    void caseTNumInteiro(TNumInteiro node);
+    void caseTNumReal(TNumReal node);
+    void caseTString(TString node);
     void caseTAspasSimples(TAspasSimples node);
     void caseTVirgula(TVirgula node);
     void caseTPonto(TPonto node);
@@ -48,10 +50,10 @@ public interface Analysis extends Switch
     void caseTRepita(TRepita node);
     void caseTAte(TAte node);
     void caseTEscreva(TEscreva node);
+    void caseTLeia(TLeia node);
     void caseTCaractere(TCaractere node);
     void caseTInteiro(TInteiro node);
     void caseTReal(TReal node);
-    void caseTString(TString node);
     void caseTBranco(TBranco node);
     void caseTId(TId node);
     void caseTComentario(TComentario node);

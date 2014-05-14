@@ -13,10 +13,11 @@ import node.Token;
 
 public class Main {
      protected static Token tk = null;
-     
+     public static String nomeArq = "";
      public static void main(String[] arguments) {
+          nomeArq = arguments[0];
           try {  
-                 File srcPath = new File("src\\doc\\teste.txt");
+                 File srcPath = new File(nomeArq);
                  FileInputStream entrada = new FileInputStream(srcPath);
                  Lexer lex =  new Lexer( new PushbackReader(new InputStreamReader(entrada), 1024));
                  analiseLexica(lex);   
@@ -24,6 +25,8 @@ public class Main {
           catch(Exception e) {
                   System.out.println(e.getMessage());
           }
+          
+          
      }
     
      
@@ -31,11 +34,11 @@ public class Main {
          tk = lexer.next();
          while(!tk.getText().equals("")) {
              if(!tk.getText().equals(" ")){
-                 System.out.print(/*"["+tk.getLine()+","+tk.getPos()+"] "+*/tk.getText()+" "); 
+                 System.out.print(/*"["+tk.getLine()+","+tk.getPos()+"] "+  */ tk.getText()); 
              }
-             if(tk.getText().contains("\n")){
+             /* if(tk.getText().contains("\n")){
                  System.out.println();
-             }
+             }*/
              analiseLexica(lexer);
          }
          

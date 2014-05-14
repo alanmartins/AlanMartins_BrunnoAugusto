@@ -64,7 +64,17 @@ public class AnalysisAdapter implements Analysis
         }
     }
 
-    public void caseTDigito(TDigito node)
+    public void caseTNumInteiro(TNumInteiro node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseTNumReal(TNumReal node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseTString(TString node)
     {
         defaultCase(node);
     }
@@ -249,6 +259,11 @@ public class AnalysisAdapter implements Analysis
         defaultCase(node);
     }
 
+    public void caseTLeia(TLeia node)
+    {
+        defaultCase(node);
+    }
+
     public void caseTCaractere(TCaractere node)
     {
         defaultCase(node);
@@ -260,11 +275,6 @@ public class AnalysisAdapter implements Analysis
     }
 
     public void caseTReal(TReal node)
-    {
-        defaultCase(node);
-    }
-
-    public void caseTString(TString node)
     {
         defaultCase(node);
     }

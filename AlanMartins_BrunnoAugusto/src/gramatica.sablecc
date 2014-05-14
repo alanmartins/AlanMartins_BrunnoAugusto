@@ -3,7 +3,7 @@ Helpers
 		enter = 13;	
 	line_feed = 10;
 		  tab = 9;
-   espaco = ' ';
+       espaco = ' ';
    
    eol = (enter | line_feed | line_feed enter);
    
@@ -14,12 +14,16 @@ Helpers
    sem_estrela = [todos - '*'];
    sem_estrela_e_barra = [sem_estrela - '/'];
    
-   c_linha = '//' sem_eol* eol*; 
+   c_linha = '//' sem_eol*; 
    c_bloco = '/*' sem_estrela* '*'+ (sem_estrela_e_barra sem_estrela* '*'+)* '/';
+   sinal = '+' | '-';
 
 Tokens
 	
-	digito = numero;
+	num_inteiro = sinal? espaco* numero;
+	num_real = sinal? espaco* numero '.' numero;
+	string = ''' sem_eol+ ''';
+	
 	aspas_simples = ''';
 	virgula = ',';
 	ponto = '.';
@@ -58,12 +62,12 @@ Tokens
     repita = 'repita';
     ate = 'ate';    
     escreva = 'escreva';
+    leia = 'leia';
     
     caractere = 'caractere';
     inteiro = 'inteiro';
     real = 'real';
     
-    string = ''' sem_eol+ ''';
     branco = (espaco | tab | line_feed | enter)*; 
     id = nao_numero (numero | nao_numero)*;
     comentario = c_linha | c_bloco;
