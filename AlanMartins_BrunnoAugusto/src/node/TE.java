@@ -9,12 +9,12 @@ public final class TE extends Token
 {
     public TE()
     {
-        super.setText("&");
+        super.setText("e");
     }
 
     public TE(int line, int pos)
     {
-        super.setText("&");
+        super.setText("e");
         setLine(line);
         setPos(pos);
     }

@@ -9,12 +9,12 @@ public final class TNao extends Token
 {
     public TNao()
     {
-        super.setText("~");
+        super.setText("nao");
     }
 
     public TNao(int line, int pos)
     {
-        super.setText("~");
+        super.setText("nao");
         setLine(line);
         setPos(pos);
     }
