@@ -20,11 +20,11 @@ Helpers
 
 Tokens
 	
-	num_inteiro = sinal? espaco* numero;
-	num_real = sinal? espaco* numero '.' numero;
+	num_inteiro = sinal? numero;
+	num_real = sinal? numero '.' numero;
 	string = ''' sem_eol+ ''';
-	constante = 'constante';
 	
+	constante = 'constante';
 	aspas_simples = ''';
 	virgula = ',';
 	ponto = '.';
@@ -59,6 +59,7 @@ Tokens
     fim_para = 'fim' espaco+ 'para';
     fim_enquanto = 'fim' espaco+ 'enquanto';
     fim_se = 'fim' espaco+ 'se';
+    fim_avalie = 'fim' espaco+ 'avalie';
     se = 'se'; 
     enquanto = 'enquanto';
     para = 'para';
@@ -87,65 +88,81 @@ Ignored Tokens
  	 branco,
  	 comentario;
  	 
+ 	 
 Productions
-	program = programa id inicio declaracao comando fim ;
+	program = programa id inicio declaracao comando fim;
 
-  	declaracao = {unica_var} tipo dois_pontos var ponto_virgula
-  			   | {multipla_var} tipo dois_pontos [var1]:var virgula [var2]:var ponto_virgula
-  			   | {constantes} constante id valor ponto_virgula;
+  	declaracao = {unico} variavel_definicao | {multiplo} declaracao variavel_definicao | {const} constante identificador valor ponto_virgula ;
+
+  	variavel_definicao = tipo dois_pontos multiplo_id identificador ponto_virgula ;
+
+  	identificador = {unico} id | {multiplo} id l_colc num_inteiro r_colc;
+
+	valor = {string} string | {inteiro} num_inteiro | {real} num_real;
+
+  	tipo = {tipo_real} real | {tipo_int} inteiro | {tipo_caractere} caractere;
+ 
+ 	multi_identificador = identificador virgula ;
+ 	multiplo_id = multi_identificador* ;
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	comando = {unico} definicao_comando | {multiplo} comando definicao_comando ;
+
+  	definicao_comando = {cmd_atribuicao} identificador atribuicao exp ponto_virgula 
+  			| {decl_leia}  leia  l_par  multiplo_id   identificador   r_par   ponto_virgula
+  			| {decl_escreva} escreva l_par multipla_exp exp r_par ponto_virgula
+			| {decl_avalie} avalie  l_par  exp  r_par  multiplo_caso  opcional_senao_caso  fim_avalie  ponto_virgula
+			| {decl_enquanto} enquanto  l_par  exp_logica  r_par  faca  comando fim_enquanto ponto_virgula
+			| {decl_repita} repita comando ate l_par exp_logica r_par ponto_virgula
+			| {decl_para_ate} para identificador de num_inteiro ate [int]:num_inteiro faca comando fim_para ponto_virgula
+			| {decl_para_passo} para identificador de num_inteiro passo [int]:num_inteiro ate [n_int]:num_inteiro faca comando fim_para ponto_virgula
+			| {decl_se} se l_par exp_logica r_par entao comando opcional_senao_se fim_se ponto_virgula
+	;
+
+	opcional_senao_se = senao_se? ;
+	senao_se = senao comando ; 
+
+	opcional_senao_caso = senao_caso? ;
+	senao_caso = senao dois_pontos comando ; 
+	 
+	multiplo_caso = definicao_caso* ;
+	definicao_caso = caso valor dois_pontos comando ;
+
+	multi_exp = exp virgula;
+ 	multipla_exp = multi_exp* ;
+	
+	
+
+	exp = {menos_exp} menos exp_arit | {exp_aritmetica} exp_arit ;
+	
+	exp_arit = {termo} termo | {mais} exp_arit mais termo | {menos} exp_arit menos termo;	
+  	 
+  	termo = {fator} fator | {multiplicacao} termo mult fator | {divisao} termo div fator ;
+
+  	fator = {identificador} id | {valor} valor | {exp} l_par  exp_arit  r_par;
   	
-  	tipo = {tipo_real} real 
-  		 | {tipo_inteiro} inteiro 
-  		 | {tipo_caractere} caractere;
   	
-  	var = {identificador} id 
-  		| {vetor} id l_colc num_inteiro r_colc;
   	
-  	valor = {real} num_real 
-  		  | {inteiro} num_inteiro 
-  		  | {string} string; 
   	
-  	comando = {variable} var atribuicao exp ponto_virgula
-  			| {unica_leitura} leia l_par var r_par ponto_virgula
-  			| {unica_escrita} escreva l_par exp r_par ponto_virgula
-			| {multipla_leitura} leia l_par [antes]:var virgula [depois]:var r_par ponto_virgula
-  			| {multipla_escrita} escreva l_par [antes]:exp virgula [depois]:exp r_par ponto_virgula
+  	exp_logica = {nao} nao logica | {logica} logica;
   	
-  			| {enquanto_comandos} enquanto l_par exp_logica r_par faca  [cmd1]:comando  [pv1]:ponto_virgula [cmd2]:comando [pv2]:ponto_virgula fim_enquanto  [pv3]:ponto_virgula
-  			| {enquanto_comando} enquanto l_par exp_logica r_par faca comando [pv1]:ponto_virgula fim_enquanto [pv2]:ponto_virgula
-  			
-  			| {repita_comandos} repita [cmd1]:comando [pv1]:ponto_virgula [cmd2]:comando [pv2]:ponto_virgula ate l_par exp_logica r_par [pv3]:ponto_virgula
-  			| {repita_comando} repita comando [pv1]:ponto_virgula ate l_par exp_logica r_par [pv2]:ponto_virgula
-  			
-			| {para_ate_comandos} para var de [int1]:num_inteiro ate [int2]:num_inteiro faca [cmd1]:comando  [pv1]:ponto_virgula  [cmd2]:comando [pv2]:ponto_virgula fim_para [pv3]:ponto_virgula
-  			| {para_ate_comando} para var de [int1]:num_inteiro ate [int2]:num_inteiro faca comando [pv1]:ponto_virgula fim_para [pv2]:ponto_virgula
-  			
-  			| {para_passo_comandos} para var de [int1]:num_inteiro passo [int2]:num_inteiro ate [int3]:num_inteiro faca [cmd1]:comando [pv1]:ponto_virgula [cmd2]:comando [pv2]:ponto_virgula fim_para [pv3]:ponto_virgula
-  			| {para_passo_comando} para var de [int1]:num_inteiro passo [int2]:num_inteiro ate [int3]:num_inteiro faca comando [pv1]:ponto_virgula fim_para [pv2]:ponto_virgula
-  	;
-  			
-  	exp = {valor}              valor
-	    | {var}                var
-	    | {exp_par}            l_par exp r_par
-	    | {menos_exp}          menos exp
-	    | {adicao_exp}         [l]:exp mais [r]:exp
-	    | {subtracao_exp}      [l]:exp menos [r]:exp
-	    | {multiplicacao_exp}  [l]:exp mult [r]:exp
-	    | {divisao_exp}        [l]:exp div [r]:exp
-	    | exp_logica
-     ;
-     
-    exp_logica = {igual}        [l]:exp igual [r]:exp
-    		   | {diferente}    [l]:exp diferente [r]:exp
-    		   | {menor_igual}  [l]:exp menor_igual [r]:exp
-    		   | {maior_igual}  [l]:exp maior_igual [r]:exp
-    		   | {menor}        [l]:exp menor [r]:exp
-    		   | {maior}        [l]:exp maior [r]:exp
-    		   | {nao}          nao exp_logica
-    		   | {e}            [l]:exp_logica e [r]:exp_logica
-    		   | {ou}           [l]:exp_logica ou [r]:exp_logica
-    		   | {xou}          [l]:exp_logica xou [r]:exp_logica
-   	 ;                 
-    		     		
-  			
+  	logica = {e}    	   logica e relacional
+    	   | {ou}   	   logica ou relacional
+    	   | {xou}  	   logica xou relacional
+    	   | {relacional}  relacional
+   	; 
   	
+  	
+  	relacional =  {igual}        [l]:exp igual [r]:exp
+    		   	| {diferente}    [l]:exp diferente [r]:exp
+    		   	| {menor_igual}  [l]:exp menor_igual [r]:exp
+    		   	| {maior_igual}  [l]:exp maior_igual [r]:exp
+    		   	| {menor}        [l]:exp menor [r]:exp
+    		   	| {maior}        [l]:exp maior [r]:exp
+   	;
+
+	             

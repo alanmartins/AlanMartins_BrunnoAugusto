@@ -6,8 +6,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PushbackReader;
 
+import parser.Parser;
 import lexer.Lexer;
 import lexer.LexerException;
+import node.Start;
 import node.Token;
 
 
@@ -20,7 +22,11 @@ public class Main {
                  File srcPath = new File("src\\doc\\teste.txt");
                  FileInputStream entrada = new FileInputStream(srcPath);
                  Lexer lex =  new Lexer( new PushbackReader(new InputStreamReader(entrada), 1024));
-                 analiseLexica(lex);   
+                 Parser p = new Parser(lex);
+                 
+                 Start arvore = p.parse();
+                 
+                 //analiseLexica(lex);   
           }
           catch(Exception e) {
                   System.out.println(e.getMessage());

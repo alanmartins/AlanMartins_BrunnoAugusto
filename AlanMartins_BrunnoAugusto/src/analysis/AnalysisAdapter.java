@@ -74,52 +74,32 @@ public class AnalysisAdapter implements Analysis
         defaultCase(node);
     }
 
-    public void caseAUnicaVarDeclaracao(AUnicaVarDeclaracao node)
+    public void caseAUnicoDeclaracao(AUnicoDeclaracao node)
     {
         defaultCase(node);
     }
 
-    public void caseAMultiplaVarDeclaracao(AMultiplaVarDeclaracao node)
+    public void caseAMultiploDeclaracao(AMultiploDeclaracao node)
     {
         defaultCase(node);
     }
 
-    public void caseAConstantesDeclaracao(AConstantesDeclaracao node)
+    public void caseAConstDeclaracao(AConstDeclaracao node)
     {
         defaultCase(node);
     }
 
-    public void caseATipoRealTipo(ATipoRealTipo node)
+    public void caseAVariavelDefinicao(AVariavelDefinicao node)
     {
         defaultCase(node);
     }
 
-    public void caseATipoInteiroTipo(ATipoInteiroTipo node)
+    public void caseAUnicoIdentificador(AUnicoIdentificador node)
     {
         defaultCase(node);
     }
 
-    public void caseATipoCaractereTipo(ATipoCaractereTipo node)
-    {
-        defaultCase(node);
-    }
-
-    public void caseAIdentificadorVar(AIdentificadorVar node)
-    {
-        defaultCase(node);
-    }
-
-    public void caseAVetorVar(AVetorVar node)
-    {
-        defaultCase(node);
-    }
-
-    public void caseARealValor(ARealValor node)
-    {
-        defaultCase(node);
-    }
-
-    public void caseAInteiroValor(AInteiroValor node)
+    public void caseAMultiploIdentificador(AMultiploIdentificador node)
     {
         defaultCase(node);
     }
@@ -129,82 +109,132 @@ public class AnalysisAdapter implements Analysis
         defaultCase(node);
     }
 
-    public void caseAVariableComando(AVariableComando node)
+    public void caseAInteiroValor(AInteiroValor node)
     {
         defaultCase(node);
     }
 
-    public void caseAUnicaLeituraComando(AUnicaLeituraComando node)
+    public void caseARealValor(ARealValor node)
     {
         defaultCase(node);
     }
 
-    public void caseAUnicaEscritaComando(AUnicaEscritaComando node)
+    public void caseATipoRealTipo(ATipoRealTipo node)
     {
         defaultCase(node);
     }
 
-    public void caseAMultiplaLeituraComando(AMultiplaLeituraComando node)
+    public void caseATipoIntTipo(ATipoIntTipo node)
     {
         defaultCase(node);
     }
 
-    public void caseAMultiplaEscritaComando(AMultiplaEscritaComando node)
+    public void caseATipoCaractereTipo(ATipoCaractereTipo node)
     {
         defaultCase(node);
     }
 
-    public void caseAEnquantoComandosComando(AEnquantoComandosComando node)
+    public void caseAMultiIdentificador(AMultiIdentificador node)
     {
         defaultCase(node);
     }
 
-    public void caseAEnquantoComandoComando(AEnquantoComandoComando node)
+    public void caseAMultiploId(AMultiploId node)
     {
         defaultCase(node);
     }
 
-    public void caseARepitaComandosComando(ARepitaComandosComando node)
+    public void caseAUnicoComando(AUnicoComando node)
     {
         defaultCase(node);
     }
 
-    public void caseARepitaComandoComando(ARepitaComandoComando node)
+    public void caseAMultiploComando(AMultiploComando node)
     {
         defaultCase(node);
     }
 
-    public void caseAParaAteComandosComando(AParaAteComandosComando node)
+    public void caseACmdAtribuicaoDefinicaoComando(ACmdAtribuicaoDefinicaoComando node)
     {
         defaultCase(node);
     }
 
-    public void caseAParaAteComandoComando(AParaAteComandoComando node)
+    public void caseADeclLeiaDefinicaoComando(ADeclLeiaDefinicaoComando node)
     {
         defaultCase(node);
     }
 
-    public void caseAParaPassoComandosComando(AParaPassoComandosComando node)
+    public void caseADeclEscrevaDefinicaoComando(ADeclEscrevaDefinicaoComando node)
     {
         defaultCase(node);
     }
 
-    public void caseAParaPassoComandoComando(AParaPassoComandoComando node)
+    public void caseADeclAvalieDefinicaoComando(ADeclAvalieDefinicaoComando node)
     {
         defaultCase(node);
     }
 
-    public void caseAValorExp(AValorExp node)
+    public void caseADeclEnquantoDefinicaoComando(ADeclEnquantoDefinicaoComando node)
     {
         defaultCase(node);
     }
 
-    public void caseAVarExp(AVarExp node)
+    public void caseADeclRepitaDefinicaoComando(ADeclRepitaDefinicaoComando node)
     {
         defaultCase(node);
     }
 
-    public void caseAExpParExp(AExpParExp node)
+    public void caseADeclParaAteDefinicaoComando(ADeclParaAteDefinicaoComando node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseADeclParaPassoDefinicaoComando(ADeclParaPassoDefinicaoComando node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseADeclSeDefinicaoComando(ADeclSeDefinicaoComando node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAOpcionalSenaoSe(AOpcionalSenaoSe node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseASenaoSe(ASenaoSe node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAOpcionalSenaoCaso(AOpcionalSenaoCaso node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseASenaoCaso(ASenaoCaso node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAMultiploCaso(AMultiploCaso node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseADefinicaoCaso(ADefinicaoCaso node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAMultiExp(AMultiExp node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAMultiplaExp(AMultiplaExp node)
     {
         defaultCase(node);
     }
@@ -214,57 +244,52 @@ public class AnalysisAdapter implements Analysis
         defaultCase(node);
     }
 
-    public void caseAAdicaoExpExp(AAdicaoExpExp node)
+    public void caseAExpAritmeticaExp(AExpAritmeticaExp node)
     {
         defaultCase(node);
     }
 
-    public void caseASubtracaoExpExp(ASubtracaoExpExp node)
+    public void caseATermoExpArit(ATermoExpArit node)
     {
         defaultCase(node);
     }
 
-    public void caseAMultiplicacaoExpExp(AMultiplicacaoExpExp node)
+    public void caseAMaisExpArit(AMaisExpArit node)
     {
         defaultCase(node);
     }
 
-    public void caseADivisaoExpExp(ADivisaoExpExp node)
+    public void caseAMenosExpArit(AMenosExpArit node)
     {
         defaultCase(node);
     }
 
-    public void caseAExp(AExp node)
+    public void caseAFatorTermo(AFatorTermo node)
     {
         defaultCase(node);
     }
 
-    public void caseAIgualExpLogica(AIgualExpLogica node)
+    public void caseAMultiplicacaoTermo(AMultiplicacaoTermo node)
     {
         defaultCase(node);
     }
 
-    public void caseADiferenteExpLogica(ADiferenteExpLogica node)
+    public void caseADivisaoTermo(ADivisaoTermo node)
     {
         defaultCase(node);
     }
 
-    public void caseAMenorIgualExpLogica(AMenorIgualExpLogica node)
+    public void caseAIdentificadorFator(AIdentificadorFator node)
     {
         defaultCase(node);
     }
 
-    public void caseAMaiorIgualExpLogica(AMaiorIgualExpLogica node)
+    public void caseAValorFator(AValorFator node)
     {
         defaultCase(node);
     }
 
-    public void caseAMenorExpLogica(AMenorExpLogica node)
-    {
-        defaultCase(node);
-    }
-
-    public void caseAMaiorExpLogica(AMaiorExpLogica node)
+    public void caseAExpFator(AExpFator node)
     {
         defaultCase(node);
     }
@@ -274,17 +299,57 @@ public class AnalysisAdapter implements Analysis
         defaultCase(node);
     }
 
-    public void caseAEExpLogica(AEExpLogica node)
+    public void caseALogicaExpLogica(ALogicaExpLogica node)
     {
         defaultCase(node);
     }
 
-    public void caseAOuExpLogica(AOuExpLogica node)
+    public void caseAELogica(AELogica node)
     {
         defaultCase(node);
     }
 
-    public void caseAXouExpLogica(AXouExpLogica node)
+    public void caseAOuLogica(AOuLogica node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAXouLogica(AXouLogica node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseARelacionalLogica(ARelacionalLogica node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAIgualRelacional(AIgualRelacional node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseADiferenteRelacional(ADiferenteRelacional node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAMenorIgualRelacional(AMenorIgualRelacional node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAMaiorIgualRelacional(AMaiorIgualRelacional node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAMenorRelacional(AMenorRelacional node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseAMaiorRelacional(AMaiorRelacional node)
     {
         defaultCase(node);
     }
@@ -465,6 +530,11 @@ public class AnalysisAdapter implements Analysis
     }
 
     public void caseTFimSe(TFimSe node)
+    {
+        defaultCase(node);
+    }
+
+    public void caseTFimAvalie(TFimAvalie node)
     {
         defaultCase(node);
     }

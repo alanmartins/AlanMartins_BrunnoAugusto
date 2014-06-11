@@ -1,18 +1,35 @@
-programa _Ola_Mundo100;
-var caractere : TexTo[50];
-	inteiro : a;
-	real : b;
+programa _Ola_Mundo100
+
 inicio
-	a <- 12;
-	b <- 24 - - 12.35;
+	inteiro : a, b, c;
+	real : r;
+	caractere : TexTo[50];
+
+	a <- 10;
+	b <- 13;
+	c <- 45;	
+	r <- -12.35;
 	TexTo <- 'Ola Mundo';
-	/* b */ c */
 	
-	enquanto(a == 4) faca
-		escreva(texto);
+	
+	
+	enquanto(a >= 4) faca
 		a <- a - 1;
-	fim   enquanto;
-	se (a == b) entao
-		escreva(texto);
+	fim enquanto;
+	
+	se (a = b) entao
+		se ( nao a <= (b*3) ou c >= b) entao
+			a <- b + c * 2;
+		fim se;
+	senao
+		escreva(a);
+		repita 
+			a <- a + 1;
+		ate(a > 20);
 	fim  se;
+	
+	para i de 1 passo 12 ate 10 faca
+		escreva(TexTo);
+	fim para;
+	
 fim.
